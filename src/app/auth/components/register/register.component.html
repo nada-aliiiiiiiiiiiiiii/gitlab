@@ -1,0 +1,74 @@
+
+<div class="auth-page">
+
+<div class="container page">
+
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3 col-xs-12">
+
+            <h1 class="text-xs-center">Sign Up</h1>
+
+            <p class="text-xs-center">
+
+              <a routerLink="/login">Have an account?</a>
+
+              </p>
+
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <fieldset class="form-group">
+
+            <input type="text" class="form-control form-control-lg" placeholder="Username"  formControlName="username">
+
+            <div  *ngIf="form.get('username')?.touched && form.get('username')?.errors" class="alert alert-danger" >
+              <p style="margin-bottom: 0px;" *ngIf="form.get('username')?.getError('required')">name is required</p>
+            </div>
+
+            </fieldset>
+
+
+            <fieldset class="form-group">
+
+            <input type="text" class="form-control form-control-lg" placeholder="Email" formControlName="email" >
+
+            <div *ngIf="form.get('email')?.touched && form.get('email')?.errors" class="alert alert-danger" >
+              <p style="margin-bottom: 0px;" *ngIf="form.get('email')?.getError('required')">email is required</p>
+              <p style="margin-bottom: 0px;" *ngIf="form.get('email')?.getError('email')">email invalid formate</p>
+            </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+
+            <input type="password" class="form-control form-control-lg" placeholder="password" formControlName="password" >
+
+            <div  *ngIf="form.get('password')?.touched && form.get('password')?.errors" class="alert alert-danger" >
+              <p style="margin-bottom: 0px;" *ngIf="form.get('password')?.getError('required')">password is required</p>
+            </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+
+              <input type="tel" class="form-control form-control-lg" placeholder="phoneNum" formControlName="phoneNum" >
+
+              <div  *ngIf="form.get('phoneNum')?.touched && form.get('phoneNum')?.errors " class="alert alert-danger" >
+                <p style="margin-bottom: 0px;" *ngIf="form.get('phoneNum')?.getError('required')">phoneNumber is required</p>
+                <p style="margin-bottom: 0px;" *ngIf="form.get('phoneNum')?.getError('pattern')">egyption phone number</p>
+              </div>
+
+              </fieldset>
+
+            <button type="submit" class="btn btn-lg btn-primary " [disabled]="isSupmitting$ |async"> sign up</button>
+
+
+            </form>
+
+          </div>
+
+        </div>
+
+  </div>
+
+  </div>
